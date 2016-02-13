@@ -1,4 +1,13 @@
 def printBoard(board):
+    print(board['top-L'] + '|' + board['top-M'] + '|' + board['top-R'])
+    print('-+-+-')
+    print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])
+    print('-+-+-')
+    print(board['low-L'] + '|' + board['low-M'] + '|' + board['low-R'])
+
+
+
+
     # TO DO #################################################################
     # Write code in this function that prints the game board.               #
     # The code in this function should only print, the user should NOT      #
@@ -9,6 +18,9 @@ def printBoard(board):
 
 def checkWinner(board, player):    
     print('Checking if ' + player + ' is a winner...')
+
+   
+    
     
     # TO DO #################################################################
     # Write code in this function that checks the tic-tac-toe board          #
@@ -28,21 +40,21 @@ def startGame(startingPlayer, board):
 
     turn = startingPlayer
     for i in range(9):
-        printBoard(board)
-        print('Turn for ' + turn + '. Move on which space?')
-        move = input()
-        board[move] = turn
-        if( checkWinner(board, 'X') ):
-            print('X wins!')
+        printBoard(board) #When you run this program, it will print out a blank tic-tactoe board
+        print('Turn for ' + turn + '. Move on which space?') #It's the starting player's turn and asks where they want to move
+        move = input() #Enter the space you want to move in
+        board[move] = turn #swaps the active player 
+        if( checkWinner(board, 'X') ): #Checks to see if player X won
+            print('X wins!') # if player X has won, it prints "X wins!"
             break
-        elif ( checkWinner(board, 'O') ):
-            print('O wins!')
+        elif ( checkWinner(board, 'O') ): #Checks to see if player O won
+            print('O wins!') # If player O has won, it prints "O wins!"
             break
     
-        if turn == 'X':
-            turn = 'O'
+        if turn == 'X': #if it is player "X" turn then next will be player "O"
+            turn = 'O' #moves on to next turn 
         else:
-            turn = 'X'
+            turn = 'X' #moves on to next turn
         
     printBoard(board)
     
